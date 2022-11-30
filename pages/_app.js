@@ -1,17 +1,13 @@
 import '../styles/globals.css';
-import { useState, createContext } from "react";
-import AppContext from "../components/AppContext";
+import { AppContextProvider } from '../contexts/AppContext';
+
 
 function MyApp({ Component, pageProps }) {
 
-  const [company, setCompany] = useState("");
-  const [capvalue, setCapValue] = useState("");
-  const [phone, setPhone] = useState("");
-
   return (
-      <AppContext.Provider value={ {company, setCompany, capvalue, setCapValue, phone, setPhone} }>
+      <AppContextProvider>
         <Component {...pageProps} />
-      </AppContext.Provider>
+      </AppContextProvider>
     )
   ;
 }
