@@ -1,22 +1,21 @@
 import Image from 'next/image'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { useRouter } from "next/router"
-import { AppContext } from '../contexts/AppContext';
+import axios from 'axios';
 
+import { AppContext } from '../contexts/AppContext';
 
 import Logo from '../public/dwsLogo.jpg'
 import MBWay from '../public/mbway.png'
 import RefMB from '../public/ref.png'
 
 export default function Home() {
+  const [company, setCompany] = useState("");
+  const [capvalue, setCapValue] = useState("");
+  const [phone, setPhone] = useState("");
+  
   const {
-    company, 
-    setCompany, 
-    setCapValue, 
-    setPhone, 
     createPayment, 
-    phone, 
-    capvalue
   } = useContext(AppContext)
 
   const router = useRouter()
